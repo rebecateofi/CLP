@@ -1,0 +1,15 @@
+{{define "Edit"}}
+	{{template "Header"}}
+		{{template "Menu"}}
+		<h2> Editar nome e e-mail</h2><br/>
+		<form method="POST" action="update">
+			<input type="hidden" name="uid" value="{{ .Id }}">
+			<input type="text" name="name" value="{{ .Name }}" placeholder="NOME" required=""><br/>
+			<input type="text" name="email" value="{{ .Email }}" placeholder="E-MAIL" required=""><br/>
+			<input type="password" name="pass" value="{{ .Pass }}" placeholder="SENHA" required=""><br/>
+			<button type="submit" class="btnn" name="submit">ALTERAR</button>
+		</form><br/>
+		<a href="\delete?id={{ .Id }}">Deletar</a>
+
+	{{ template "Footer" }}
+{{end}}

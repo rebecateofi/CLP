@@ -1,0 +1,27 @@
+{{ define "New" }}
+	{{ template "Header"}}
+		{{ template "Menu"}}
+		<h2>Novo cliente</h2><br/>
+		<form method="POST" action="insert">
+			<input type="text" name="name" placeholder="Nome" required=""><br/>
+			<input type="text" name="email" placeholder="E-mail" required=""><br/>
+			<input type="password" id="pass" name="pass" placeholder="Senha" required=""><br/>
+			<input type="password" id="pass1" name="pass1" placeholder="Confirmar Senha" required=""><br/>
+			<script type="text/javascript">
+
+					var pass = document.getElementById("pass"), pass1 = document.getElementById("pass1");
+
+					function validatepass(){
+			  			if(pass.value != pass1.value) {
+			    			pass1.setCustomValidity("As senhas não batem! Tente outra vez.");
+			  			} else {
+				    		pass1.setCustomValidity('');
+				  		}
+					}
+				pass.onchange = validatepass;
+				pass1.onkeyup = validatepass;
+			</script>
+			<button type="submit" class="btnn" name="submit">CADASTRAR</button>
+		</form>
+	{{ template "Footer"}}
+{{ end }}
